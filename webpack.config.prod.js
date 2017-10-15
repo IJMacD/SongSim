@@ -1,6 +1,8 @@
 const webpack = require('webpack');
 const config = require('./webpack.config');
 
+config.entry = "src/index.js"
+config.output.path = path.resolve('dist');
 config.output.filename = "[name].min.js";
 config.output.publicPath = "";
 config.devtool = "source-map";

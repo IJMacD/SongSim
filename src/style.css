@@ -1,3 +1,22 @@
 body {
   font-family: sans-serif;
+  margin: 0;
+}
+
+:root {
+  --mdc-theme-primary: #FF5722;
+  --mdc-theme-primary-light: #FF8A65;
+  --mdc-theme-primary-dark: #E64A19;
+
+  --mdc-theme-secondary: #2196F3;
+  --mdc-theme-secondary-light: #64B5F6;
+  --mdc-theme-secondary-dark: #1976D2;
+
+  --mdc-theme-accent: #2196F3;
+
+  --mdc-theme-background: #263238;
+
+  --mdc-theme-text-primary-on-primary: #fff;
+  --mdc-theme-text-primary-on-light: #101010;
+  --mdc-theme-text-primary-on-dark: #ffffff;
 }

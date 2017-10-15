@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import { Display3 } from 'react-mdc-web';
 
-import classes from './style.cssm';
+import styles from './style.css';
 
 export default class App extends Component {
   render () {
     return (
-      <div>
-        <h1 className={classes.welcome}>
+      <div className={styles.welcome}>
+        <Display3 className="mdc-theme--primary-light">
           Welcome to Blank React Project
-        </h1>
+        </Display3>
       </div>
     );
   }

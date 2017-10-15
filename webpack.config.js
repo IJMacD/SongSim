@@ -1,16 +1,23 @@
 var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
-  entry: './src/index.js',
+  devtool: 'eval',
+  entry: [
+    'webpack-hot-middleware/client',
+    './src/index'
+  ],
   output: {
-    path: path.resolve('dist'),
+    path: path.resolve('public'),
     filename: 'bundle.js',
-    publicPath: 'dist/',
+    publicPath: '/public/',
   },
   resolve: {
     extensions: ['.js', '.jsx']
   },
-  plugins: [],
+  plugins: [
+    new webpack.HotModuleReplacementPlugin()
+  ],
   module: {
     rules: [
       {
@@ -20,15 +27,21 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        loader: 'style-loader!css-loader?modules&camelCase',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/,
         loader: 'style-loader!css-loader',
+        include: /node_modules/,
       },
       {
-        test: /\.cssm$/,
-        loader: 'style-loader!css-loader?modules',
-      },
-      {
-        test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
+        test: /\.(png|jpe?g|gif)$/,
         loader: 'url-loader?limit=10000',
+      },
+      {
+        test: /\.(ttf|eot|svg|woff2?)(\?[a-z0-9]+)?$/,
+        loader: 'file-loader',
       },
     ]
   }
