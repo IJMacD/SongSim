@@ -1,5 +1,5 @@
 {
-  "name": "blank-react-project",
+  "name": "songsim",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/IJMacD/blank-react-project.git"
+    "url": "git+https://github.com/IJMacD/SongSim.git"
   },
   "author": "Iain MacDonald",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/IJMacD/blank-react-project/issues"
+    "url": "https://github.com/IJMacD/SongSim/issues"
   },
-  "homepage": "https://github.com/IJMacD/blank-react-project#readme",
+  "homepage": "https://github.com/IJMacD/SongSim#readme",
   "dependencies": {
     "express": "^4.16.2",
     "react": "^15.6.2",
