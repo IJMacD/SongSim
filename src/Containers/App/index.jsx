@@ -24,7 +24,7 @@ export default class App extends Component {
     const lyrics = this.state.lyrics;
     const tokens = lyrics.split(/\s+/).map(w => w.replace(/[^\w]/g, "").toLowerCase()).filter(w => w.length);
     const size = tokens.length;
-    const scale = Math.max(1, Math.floor(1000/size));
+    const scale = Math.max(1, Math.floor(1000/(size||1)));
 
     return (
       <div>
@@ -33,14 +33,8 @@ export default class App extends Component {
             Welcome to SongSim
           </Display3>
         </div>
-        <Content style={{padding: 15, display: "flex"}}>
-          <div>
-            <textarea rows={8} cols={40} value={lyrics} onChange={this.handleInput} />
-            <p>{size} words</p>
-            <ul>
-              {tokens.map(w => <li>{w}</li>)}
-            </ul>
-          </div>
+        <Content style={{padding: 15, display: "flex", justifyContent: "space-around"}}>
+          <textarea rows={60} cols={60} value={lyrics} onChange={this.handleInput} />
           <ImageGrid
             tokens={tokens}
             size={size}
@@ -51,6 +45,9 @@ export default class App extends Component {
             }}
             theme="color" />
         </Content>
+        <div>
+          <p>{size} words</p>
+        </div>
       </div>
     );
   }
