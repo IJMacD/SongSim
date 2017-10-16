@@ -22,8 +22,9 @@ export default class App extends Component {
 
   render () {
     const lyrics = this.state.lyrics;
-    const tokens = lyrics.split(/\s+/).map(w => w.replace(/[^\w]/g, "")).filter(w => w.length);
+    const tokens = lyrics.split(/\s+/).map(w => w.replace(/[^\w]/g, "").toLowerCase()).filter(w => w.length);
     const size = tokens.length;
+    const scale = Math.max(1, Math.floor(1000/size));
 
     return (
       <div>
@@ -40,7 +41,15 @@ export default class App extends Component {
               {tokens.map(w => <li>{w}</li>)}
             </ul>
           </div>
-          <ImageGrid tokens={tokens} size={size} style={{ width: size * 3, height: size * 3, imageRendering: 'pixelated' }} />
+          <ImageGrid
+            tokens={tokens}
+            size={size}
+            style={{
+              width: size * scale,
+              height: size * scale,
+              imageRendering: 'pixelated'
+            }}
+            theme="color" />
         </Content>
       </div>
     );
